@@ -1,0 +1,29 @@
+<h2>Most Lucrative Advertisement</h2>
+<% if @view_ads.present? %>
+<h3>
+  Combination:- <%= @view_ads.first %> <br/>
+  Total Amount:- <%= @view_ads.last %>
+</h3>
+<% else %>
+   No Advertisement Found.
+<% end %>
+<h2>List of Advertisements</h2>
+<table class="ad_index">
+	<tr>
+		<th>Size</th>
+		<th>Price</th>
+		<th>Actions</th>
+	</tr>
+	<% if @ads.present? %>
+		<% @ads.each do |ad| %>
+		  <tr>
+		    <td><%= ad.size %></td>
+		    <td><%= ad.price %></td>
+		    <td><%= link_to "Delete", advertisement_path(ad), method: :delete %></td>
+		  </tr>
+		<% end %>
+	<% else %>
+     <tr><td colspan="3" style="text-align: center;">No Record Found.</td></tr>
+	<% end %>
+</table>
+<%= link_to "New", new_advertisement_path %>

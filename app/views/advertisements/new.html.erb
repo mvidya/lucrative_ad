@@ -1,0 +1,15 @@
+<h1>Create Ad</h1>
+<%= form_for @ad do |f| %>
+	<table>
+		<tr>
+			<td>Size: </td>
+			<td><%= f.text_field :size %></td>Eg. 2*2, 1*3 size
+		</tr>
+
+		<tr>
+			<td>Price: </td>
+			<td><%= f.text_field :price %></td>
+		</tr>
+	</table> <br/>
+  <%= f.submit "Save" %>
+<% end %>
